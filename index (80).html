@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Life Grants | Global Impact Community Portal</title>
+<meta name="description" content="Private community portal for Life Grantees in the United States and Kenya.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{--navy:#061534;--navy2:#0a2559;--blue:#0b55e0;--sky:#52a8ff;--ice:#eaf2ff;--gold:#c9a24b;--bg:#f5f8ff;--card:#fff;--ink:#0c1a36;--mute:#5b6c8e;--line:#dce6f7;--ok:#0e9f6e;--shadow:0 10px 40px rgba(11,85,224,.10);box-sizing:border-box}
+@media(prefers-color-scheme:dark){:root{--bg:#050e22;--card:#0b1b40;--ink:#e9f0ff;--mute:#9db1da;--line:#1a3162;--ice:#10285a;--shadow:0 10px 40px rgba(0,0,0,.35)}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0 0 .45em;line-height:1.12;letter-spacing:-.01em}
+h4{margin:0 0 10px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--sky)}
+p{margin:0 0 1em}.wrap{max-width:1160px;margin:0 auto;padding:0 24px}.mute{color:var(--mute)}
+button{font-family:inherit}
+.ic{width:24px;height:24px;flex:none}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:12px;padding:13px 26px;font:600 15px Inter,sans-serif;cursor:pointer;background:var(--blue);color:#fff;transition:transform .2s,box-shadow .2s,background .2s;box-shadow:0 6px 20px rgba(11,85,224,.28)}
+.btn:hover{transform:translateY(-2px);background:#0846bd}.btn:active{transform:none}
+.btn.gold{background:linear-gradient(135deg,#d8b45e,#b98f33);color:#1c1300;box-shadow:0 6px 22px rgba(201,162,75,.35)}.btn.gold:hover{background:linear-gradient(135deg,#e2c06c,#c79a38)}
+.btn.line{background:transparent;color:inherit;border:1.5px solid currentColor;box-shadow:none}.btn.line:hover{background:rgba(127,160,230,.14)}
+.btn.sm{padding:8px 16px;font-size:13px;border-radius:10px}.btn.red{background:#cf2d41}.btn.block{width:100%;justify-content:center}
+.link{background:none;border:0;padding:0;color:var(--sky);cursor:pointer;font-size:inherit;text-decoration:underline;text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+.logo{display:flex;align-items:center;gap:11px;font:700 19px 'Playfair Display',Georgia,serif;letter-spacing:.06em;color:inherit}
+.logo b{color:var(--gold)}.mk{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--sky),var(--blue));display:grid;place-items:center;color:#fff;font:700 18px 'Playfair Display',serif;letter-spacing:0;box-shadow:0 4px 14px rgba(82,168,255,.45)}
+/* public header */
+.hd{position:fixed;top:0;left:0;right:0;z-index:30;color:#fff;transition:background .3s,box-shadow .3s;padding-top:env(safe-area-inset-top,0px)}
+.hd.solid{background:rgba(6,21,52,.92);backdrop-filter:blur(12px);box-shadow:0 4px 30px rgba(0,0,0,.3)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:16px}
+.links{display:flex;gap:30px}.links a{color:#cfe0ff;text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}.links a:hover{color:#fff}
+@media(max-width:760px){.links{display:none}}
+/* hero */
+.hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(155deg,var(--navy) 0%,var(--navy2) 55%,#0b45b8 100%);padding:150px 0 110px}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 60% 30%,#000 10%,transparent 70%)}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;animation:float 14s ease-in-out infinite}
+.o1{width:460px;height:460px;background:#1a6bff;top:-140px;right:-100px}.o2{width:360px;height:360px;background:#3aa0ff;bottom:-160px;left:8%;animation-delay:-5s}.o3{width:220px;height:220px;background:#c9a24b;top:40%;left:46%;opacity:.18;animation-delay:-9s}
+@keyframes float{50%{transform:translate(30px,-34px) scale(1.08)}}
+.hg{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+@media(max-width:900px){.hg{grid-template-columns:1fr}.hero{padding-top:125px}}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--sky);text-transform:uppercase;letter-spacing:.22em;font-size:12px;font-weight:600;margin-bottom:18px}
+.eyebrow::before{content:"";width:34px;height:2px;background:var(--gold)}
+.hero h1{font-size:clamp(40px,6vw,68px)}
+.rot{display:inline-block;color:var(--sky);font-style:italic;transition:opacity .35s,transform .35s;min-width:2.4em}.rot.out{opacity:0;transform:translateY(12px)}
+.hero p.lead{font-size:19px;color:#c6d8fb;max-width:560px}
+.row{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.glass{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(14px);border-radius:22px;padding:28px;box-shadow:0 30px 70px rgba(0,0,0,.35);animation:rise 1s .2s both}
+.glass h4{color:var(--gold)}
+.stg{list-style:none;margin:16px 0 0;padding:0;position:relative}
+.stg::before{content:"";position:absolute;left:13px;top:10px;bottom:10px;width:2px;background:rgba(255,255,255,.2)}
+.stg li{position:relative;padding:9px 0 9px 44px;font-weight:500;color:#dce8ff}
+.stg li i{position:absolute;left:5px;top:12px;width:18px;height:18px;border-radius:50%;background:#16306b;border:2px solid rgba(255,255,255,.35)}
+.stg li.on i{background:var(--sky);border-color:#fff;animation:pulse 2s infinite}
+.glass .fi{background:rgba(255,255,255,.12);color:#8fc4ff;border-color:rgba(255,255,255,.22)}.pi{min-height:178px}.pi p{color:#cfe0ff;margin:0}
+.bar{height:3px;background:rgba(255,255,255,.18);border-radius:3px;overflow:hidden;margin:22px 0 14px}.bar i{display:block;height:100%;background:var(--gold);animation:fill 4.8s linear}
+@keyframes fill{from{width:0}to{width:100%}}
+.dots{display:flex;gap:8px}.dots button{width:10px;height:10px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.3);cursor:pointer;transition:.3s}.dots button.on{background:var(--gold);width:28px;border-radius:6px}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(82,168,255,.7)}100%{box-shadow:0 0 0 14px rgba(82,168,255,0)}}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}}
+.strip{background:var(--card);border-bottom:1px solid var(--line)}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);text-align:center}
+.sg div{padding:30px 10px;border-right:1px solid var(--line)}.sg div:last-child{border:0}
+.sg b{display:block;font:700 40px 'Playfair Display',serif;color:var(--blue)}.sg span{font-size:13px;color:var(--mute);text-transform:uppercase;letter-spacing:.12em}
+section.sec{padding:96px 0}
+.sh{max-width:680px;margin-bottom:46px}.sh h2{font-size:clamp(30px,4vw,44px)}
+.sh .eyebrow{color:var(--blue)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:var(--shadow);transition:transform .3s,border-color .3s}
+.card.hv:hover{transform:translateY(-6px);border-color:var(--sky)}
+.fi{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--ice),transparent);color:var(--blue);margin-bottom:18px;border:1px solid var(--line)}
+.fi .ic{width:26px;height:26px}
+.step{position:relative;overflow:hidden}.step em{position:absolute;right:18px;top:4px;font:700 86px 'Playfair Display',serif;color:var(--ice);font-style:normal;line-height:1}
+.step h3,.step p{position:relative}
+.band{position:relative;overflow:hidden;background:linear-gradient(120deg,var(--navy2),var(--blue));color:#fff;border-radius:28px;padding:64px 40px;text-align:center}
+.band::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.07);right:-120px;top:-180px}
+.band h2{font-size:clamp(28px,4vw,40px)}.band p{max-width:640px;margin:0 auto 26px;color:#d3e2ff}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+/* footer */
+.ft{background:var(--navy);color:#b8caee;padding:60px 0 0}
+.fg{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;padding-bottom:40px}
+@media(max-width:700px){.fg{grid-template-columns:1fr}}
+.ft .logo{color:#fff;margin-bottom:14px}.ft p{max-width:340px;font-size:14px}
+.fl{display:block;background:none;border:0;padding:5px 0;color:#d6e3ff;font-size:14px;cursor:pointer;text-align:left}.fl:hover{color:#fff;text-decoration:underline}
+.fb{border-top:1px solid rgba(255,255,255,.12);padding:20px 24px;font-size:13px;color:#8fa6d4}
+/* auth */
+.auth{min-height:100vh;display:flex;flex-direction:column;background:var(--bg)}
+.as{flex:1;display:grid;grid-template-columns:1fr 1fr}
+@media(max-width:860px){.as{grid-template-columns:1fr}.ap{display:none!important}}
+.ap{position:relative;overflow:hidden;color:#fff;background:linear-gradient(155deg,var(--navy),var(--navy2) 60%,#0b45b8);padding:56px;display:flex;flex-direction:column;justify-content:space-between}
+.ap h2{font-size:38px;margin-top:40px}.ap p{color:#c6d8fb}
+.ap ul{list-style:none;padding:0;margin:26px 0 0}.ap li{display:flex;gap:14px;align-items:center;padding:10px 0;color:#e1ecff}.ap li .ic{color:var(--sky)}
+.af{display:grid;place-items:center;padding:40px 24px}.fm{width:100%;max-width:420px}
+.fm h2{font-size:34px}
+label{display:block;font-size:13px;font-weight:600;margin:16px 0 6px}
+input,select,textarea{width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font:15px Inter,sans-serif;background:var(--card);color:var(--ink);transition:border-color .2s,box-shadow .2s}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--sky);box-shadow:0 0 0 4px rgba(82,168,255,.2)}
+.pw{position:relative}.pw button{position:absolute;right:8px;top:7px;border:0;background:none;color:var(--blue);font-weight:600;font-size:13px;padding:6px 8px;cursor:pointer}
+.err{color:#d6334a;font-size:13px;min-height:20px;margin:10px 0}
+.note{display:flex;gap:12px;background:var(--ice);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;font-size:14px;margin-top:22px}.note .ic{color:var(--blue);margin-top:2px}
+.mini{font-size:13px;color:var(--mute);text-align:center;padding:18px;border-top:1px solid var(--line)}
+/* app shell */
+.top{background:var(--navy);color:#fff;position:sticky;top:0;z-index:10;padding-top:env(safe-area-inset-top,0px);box-shadow:0 4px 24px rgba(0,0,0,.25)}
+.tb{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:66px;flex-wrap:wrap}
+.tabs{display:flex;gap:4px;background:rgba(255,255,255,.08);border-radius:12px;padding:4px}
+.tabs button{border:0;background:none;color:#c1d3f6;padding:8px 18px;border-radius:9px;font:600 14px Inter;cursor:pointer;transition:.2s}
+.tabs button.on{background:var(--blue);color:#fff}.tabs button:hover:not(.on){color:#fff}
+.who{display:flex;align-items:center;gap:12px;font-size:14px}
+.av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--sky),var(--blue));display:grid;place-items:center;font-weight:700}
+.page{padding:34px 24px 70px}
+.gr{background:linear-gradient(120deg,var(--navy2),var(--blue));color:#fff;border-radius:24px;padding:36px;margin-bottom:24px;position:relative;overflow:hidden;animation:rise .7s both}
+.gr::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:rgba(255,255,255,.08);right:-90px;top:-140px}
+.gr h1{font-size:clamp(28px,4vw,40px);position:relative}.gr p{color:#d3e2ff;margin:0;position:relative;max-width:640px}
+.kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;margin-bottom:24px}
+.kp .card{padding:22px;animation:rise .7s both}.kp .card:nth-child(2){animation-delay:.08s}.kp .card:nth-child(3){animation-delay:.16s}.kp .card:nth-child(4){animation-delay:.24s}
+.kp small{display:block;color:var(--mute);font-size:12px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.kp b{font:600 24px 'Playfair Display',serif}
+.two{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}@media(max-width:860px){.two{grid-template-columns:1fr}}
+.ring{display:flex;align-items:center;gap:22px}.ring svg{width:132px;height:132px;transform:rotate(-90deg);flex:none}
+.ring circle{fill:none;stroke-width:10}.ring .bg{stroke:var(--ice)}.ring .fg{stroke:var(--blue);stroke-linecap:round;stroke-dasharray:326.7;animation:ring 1.6s ease-out}
+@keyframes ring{from{stroke-dashoffset:326.7}}
+.rt{position:relative}.rt span{position:absolute;inset:0;display:grid;place-items:center;font:600 28px 'Playfair Display',serif}
+.stp{display:flex;margin-top:6px}.stp div{flex:1;text-align:center;font-size:12px;color:var(--mute);position:relative;padding-top:26px}
+.stp div::before{content:"";position:absolute;top:8px;left:0;right:0;height:3px;background:var(--line)}.stp div::after{content:"";position:absolute;top:2px;left:calc(50% - 7px);width:14px;height:14px;border-radius:50%;background:var(--card);border:3px solid var(--line)}
+.stp .done::before{background:var(--blue)}.stp .done::after{background:var(--blue);border-color:var(--blue)}.stp .cur{color:var(--ink);font-weight:600}.stp .cur::after{box-shadow:0 0 0 6px rgba(11,85,224,.18)}
+.kv{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}.kv span{color:var(--mute)}.kv b{text-align:right}
+.pill{display:inline-block;padding:4px 12px;border-radius:99px;background:var(--ice);color:var(--blue);font-size:12px;font-weight:600}
+.pill.s1{background:#e5f7ef;color:#0b7a55}.pill.s2{background:#fff3da;color:#8a6410}
+.qt{border-left:3px solid var(--gold);padding:6px 0 6px 18px;font:italic 500 20px/1.45 'Playfair Display',Georgia,serif}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.chips button{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:7px 16px;font:500 13px Inter;cursor:pointer;transition:.2s}
+.chips button.on,.chips button:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.post{display:flex;gap:14px;padding:20px 0;border-bottom:1px solid var(--line);animation:rise .5s both}.post:last-child{border:0}
+.post .av{flex:none;width:42px;height:42px}.post.team .av{background:linear-gradient(135deg,#d8b45e,#a67c22);color:#1c1300}
+.tag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:99px;background:var(--ice);color:var(--blue);margin-left:6px}.tag.team{background:var(--gold);color:#1c1300}
+.react{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line);background:none;color:var(--mute);border-radius:99px;padding:5px 14px;font:500 13px Inter;cursor:pointer;transition:.2s}
+.react .ic{width:16px;height:16px}.react:hover,.react.on{border-color:var(--blue);color:var(--blue);background:var(--ice)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}.tbl th{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--mute)}.tbl th,.tbl td{text-align:left;padding:13px 8px;border-bottom:1px solid var(--line)}
+.scr{overflow-x:auto}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin-bottom:22px}.stats b{display:block;font:700 34px 'Playfair Display',serif;color:var(--blue)}
+.warn{background:#fff6dd;color:#6b4e08;border-bottom:1px solid #ecd9a0;font-size:13px;padding:10px 24px;text-align:center}
+.sp{margin-bottom:22px}
+/* modals */
+.modal{position:fixed;inset:0;z-index:50;background:rgba(3,10,30,.82);backdrop-filter:blur(6px);display:grid;place-items:center;padding:20px;animation:fade .3s}
+@keyframes fade{from{opacity:0}}
+.mb{background:var(--card);border-radius:24px;padding:40px;max-width:520px;width:100%;text-align:center;animation:rise .5s both;box-shadow:0 40px 100px rgba(0,0,0,.5)}
+.mb .fi{margin:0 auto 18px;width:64px;height:64px}
+.lg{max-width:760px;text-align:left;max-height:86vh;overflow:auto;padding:0}
+.lh{position:sticky;top:0;background:var(--card);padding:24px 36px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.lb{padding:8px 36px 36px}.lb h3{font-size:20px;margin-top:26px}.lb p{color:var(--mute);font-size:15px}
+.toast{position:fixed;left:50%;bottom:calc(26px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--navy);color:#fff;padding:13px 24px;border-radius:12px;z-index:80;box-shadow:0 10px 40px rgba(0,0,0,.4);animation:rise .4s both;font-size:14px}
+
+.sb{position:relative;display:grid;grid-template-columns:repeat(4,1fr)}
+.sbt{position:absolute;left:12.5%;right:12.5%;top:17px;height:4px;background:var(--line);border-radius:4px;overflow:hidden}
+.sbt i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--sky));border-radius:4px;animation:grow 1.2s ease-out}
+@keyframes grow{from{width:0!important}}
+.sbs{position:relative;text-align:center;font-size:13px;color:var(--mute);padding:0 4px}
+.sbs b{display:grid;place-items:center;width:38px;height:38px;margin:0 auto 10px;border-radius:50%;background:var(--card);border:3px solid var(--line);font:700 14px Inter,sans-serif;color:var(--mute);position:relative;z-index:1;transition:.4s}
+.sbs span{display:block;line-height:1.3}
+.sbs.done b,.sbs.cur b{background:var(--blue);border-color:var(--blue);color:#fff}
+.sbs.cur b{animation:pulse2 2s infinite}
+.sbs.done span,.sbs.cur span{color:var(--ink);font-weight:600}
+.sbs.fin b{background:var(--ok);border-color:var(--ok);animation:none}
+@keyframes pulse2{0%{box-shadow:0 0 0 0 rgba(11,85,224,.5)}100%{box-shadow:0 0 0 14px rgba(11,85,224,0)}}
+.sb.mini{margin-bottom:6px}.sb.mini .sbt{top:6px;height:3px}.sb.mini .sbs b{width:14px;height:14px;border-width:2px;margin:0;font-size:0}.sb.mini .sbs b svg,.sb.mini .sbs span{display:none}.sb.mini .sbs.cur b{animation:none}
+@media(max-width:560px){.sbs{font-size:11px}.sbs b{width:30px;height:30px}.sbt{top:13px}}
+.sth{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.sdesc{text-align:center;color:var(--mute);margin:20px 0 0}.upper{text-transform:uppercase;letter-spacing:.12em;font-size:12px}
+.latest{margin-top:22px;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:14px;padding:16px 18px;background:var(--bg)}
+.lh2{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.lh2 small{margin-left:auto;color:var(--mute)}
+.latest p{margin:8px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.newb{background:var(--gold);color:#1c1300;font-size:11px;font-weight:700;padding:2px 10px;border-radius:99px;letter-spacing:.06em;text-transform:uppercase}
+.tl{position:relative}.tl-i{position:relative;padding:0 0 22px 28px}
+.tl-i::before{content:"";position:absolute;left:5px;top:16px;bottom:0;width:2px;background:var(--line)}.tl-i:last-child::before{display:none}
+.tl-i>i{position:absolute;left:0;top:5px;width:12px;height:12px;border-radius:50%;background:var(--blue)}.tl-i.first>i{box-shadow:0 0 0 5px rgba(11,85,224,.2)}
+.tlh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.tl-i p{margin:6px 0 0;overflow-wrap:anywhere;white-space:pre-wrap}
+.seg{display:flex;height:10px;border-radius:99px;overflow:hidden;background:var(--line);margin:16px 0}.seg i{display:block;transition:flex .6s}
+.seg .c0{background:#9db8e8}.seg .c1{background:#5aa3ff}.seg .c2{background:var(--blue)}.seg .c3{background:var(--ok)}
+.pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.pc{text-align:left;background:var(--bg);border:1.5px solid var(--line);border-radius:16px;padding:16px;cursor:pointer;color:var(--ink);font:inherit;transition:.2s}
+.pc:hover,.pc.on{border-color:var(--blue);background:var(--ice)}
+.pc .pn{display:block;font:700 34px 'Playfair Display',serif;color:var(--blue);line-height:1}.pc b{display:block;margin-top:6px}.pc small{color:var(--mute)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<noscript><p style="padding:40px;text-align:center">JavaScript is required to use the Life Grants portal.</p></noscript>
+<div id="app"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4"></script>
+<script>
+/* ===== Configuration (edit these two values after creating your Supabase project) ===== */
+const CFG={SESSION_MIN:30,YEAR:new Date().getFullYear(),UPDATED:'October 17, 2026',
+ SUPABASE_URL:'https://ezommccmaanawwlpksrq.supabase.co',SUPABASE_ANON_KEY:'sb_publishable_c3OcCZKsZM34eS8Cy3GPKw_kDDo9ihY'};
+const CONFIGURED=!/YOUR_/.test(CFG.SUPABASE_URL+CFG.SUPABASE_ANON_KEY);
+const SITE=location.origin+location.pathname;
+const HP=new URLSearchParams(location.hash.slice(1));const LINK={type:HP.get('type'),err:HP.get('error_description')};
+let sb=null;if(CONFIGURED&&window.supabase)sb=window.supabase.createClient(CFG.SUPABASE_URL,CFG.SUPABASE_ANON_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+/* ===== Helpers ===== */
+const IC={lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/>',chat:'<path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/>',mega:'<path d="M3 11v2a1 1 0 001 1h2l5 4V6L6 10H4a1 1 0 00-1 1z"/><path d="M15 9a4 4 0 010 6M18 6a8 8 0 010 12"/>',globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/>',heart:'<path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.8-8 11-8 11z"/>',shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/>',key:'<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3"/>',info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/>',chart:'<path d="M4 20V4M4 20h16M8 16v-4M13 16V8M18 16v-7"/>'};
+const ic=n=>`<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n]}</svg>`;
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $=s=>document.querySelector(s);
+const cur=c=>c==='KE'?'KES':'USD';
+const ctn=c=>c==='KE'?'Kenya':'United States';
+const ini=n=>n.split(/\s+/).map(w=>w[0]).slice(0,2).join('').toUpperCase();
+const ago=t=>{const m=(Date.now()-t)/6e4;return m<1?'Just now':m<60?Math.floor(m)+' min ago':m<1440?Math.floor(m/60)+' hr ago':new Date(t).toLocaleDateString()};
+const STAGES=['Pending','Approved','Preparing to be disbursed','Disbursed'];
+const SINFO=['Your grant has been received and is waiting for review by the Global Impact Team.','Your grant has been approved. The team is confirming the final details.','Payment is being prepared. Disbursement details are being finalized.','Your grant funds have been disbursed.'];
+const SADM=['Awaiting review','Approved, confirming details','Payment being prepared','Funds sent'];
+const sIdx=s=>{const i=STAGES.indexOf(s);return i<0?0:i};
+const CHECK='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-9"/></svg>';
+const fmt=t=>new Date(t).toLocaleString(undefined,{dateStyle:'medium',timeStyle:'short'});
+function bar(status,big){const c=sIdx(status);return`<div class="sb ${big?'':'mini'}" role="img" aria-label="Grant status: ${esc(STAGES[c])}"><div class="sbt"><i style="width:${(c/(STAGES.length-1))*100}%"></i></div>${STAGES.map((s,i)=>`<div class="sbs ${i<c?'done':''} ${i===c?'cur':''} ${i===3&&c===3?'fin':''}"><b>${i<c||(i===3&&c===3)?CHECK:i+1}</b><span>${s}</span></div>`).join('')}</div>`}
+function timeline(list,admin){return list.length?`<div class="tl">${list.map((x,i)=>`<div class="tl-i ${i===0?'first':''}"><i></i><div><div class="tlh"><span class="pill ${sIdx(x.status)===3?'s1':sIdx(x.status)>0?'s2':''}">${esc(x.status)}</span><small class="mute">${fmt(x.t)}</small>${admin?`<button class="link mute" style="font-size:12px;margin-left:auto" data-a="delup" data-id="${x.id}">Delete</button>`:''}</div><p>${esc(x.msg)}</p></div></div>`).join('')}</div>`:'<p class="mute">Updates from the Global Impact Team will appear here.</p>'}
+const QUOTES=["Small steps, taken consistently, build lasting change.","You do not have to do it all today. Take the next step.","Progress shared is progress multiplied.","Ask the question. Someone in this community has the answer.","Your story can be the encouragement someone else needs today.","Steady effort, over time, outlasts sudden effort."];
+function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),3200)}
+const setErr=m=>{const e=$('.err');if(e)e.textContent=m};
+/* ===== State and data ===== */
+const fresh=()=>({view:'home',tab:'overview',filter:'All',q:'',aq:'',legal:null,welcome:false,loading:false,ep:null,del:null,note:null,sent:false,linkErr:false,sf:'All'});
+let ME=null,posts=[],people=[],updates=[],st=Object.assign(fresh(),{loading:true}),chan=null,lastAct=Date.now(),fails=0,lock=0,rt=null;
+const me=()=>ME;
+async function loadPosts(){const[a,b]=await Promise.all([sb.from('posts').select('*').order('created_at',{ascending:false}).limit(200),sb.from('reactions').select('post_id,user_id')]);const m={};(b.data||[]).forEach(r=>{(m[r.post_id]=m[r.post_id]||[]).push(r.user_id)});posts=(a.data||[]).map(p=>({id:p.id,uid:p.author_id,name:p.author_name,type:p.type,text:p.body,t:Date.parse(p.created_at),team:p.is_team,edited:p.edited,amen:m[p.id]||[]}))}
+async function loadPeople(){const[a,b]=await Promise.all([sb.from('profiles').select('*').eq('role','grantee').order('name'),sb.from('grants').select('*')]);const gm={};(b.data||[]).forEach(g=>{gm[g.user_id]=g});people=(a.data||[]).map(p=>Object.assign({},p,{grant:gm[p.id]||{}}))}
+async function loadUpdates(){const{data}=await sb.from('grant_updates').select('*').order('created_at',{ascending:false}).limit(500);updates=(data||[]).map(x=>({id:x.id,uid:x.user_id,status:x.status,msg:x.message,t:Date.parse(x.created_at)}))}
+async function loadAll(){const{data:{session}}=await sb.auth.getSession();if(!session){ME=null;return}
+ const{data:p}=await sb.from('profiles').select('*').eq('id',session.user.id).maybeSingle();
+ if(!p){await sb.auth.signOut();ME=null;return}
+ ME=p;if(p.role==='grantee'){const{data:g}=await sb.from('grants').select('*').eq('user_id',p.id).maybeSingle();ME.grant=g||{}}
+ await loadPosts();await loadUpdates();if(p.role==='admin')await loadPeople()}
+function subscribe(){if(chan||!sb)return;const go=()=>{clearTimeout(rt);rt=setTimeout(async()=>{if(!ME||document.getElementById('gf'))return;const a=document.activeElement;if(a&&/INPUT|TEXTAREA|SELECT/.test(a.tagName))return;await loadAll();render()},500)};
+ chan=sb.channel('live');['posts','reactions','grants','profiles','grant_updates'].forEach(t=>chan.on('postgres_changes',{event:'*',schema:'public',table:t},go));chan.subscribe()}
+function unsub(){if(chan&&sb){sb.removeChannel(chan)}chan=null}
+async function signOut(){unsub();if(sb)await sb.auth.signOut();ME=null;posts=[];people=[];updates=[];st=fresh();render()}
+async function api(body){const{data,error}=await sb.functions.invoke('admin-actions',{body});if(error){let m=error.message;try{const j=await error.context.json();m=j.error||m}catch(e){}return{error:m}}if(data&&data.error)return{error:data.error};return{data}}
+async function doLogin(email,pw,want){if(Date.now()<lock)return'Too many attempts. Please wait 30 seconds and try again.';
+ const{error}=await sb.auth.signInWithPassword({email:email.trim().toLowerCase(),password:pw});
+ if(error){console.error('Sign-in error:',error.message);if(!/invalid login credentials/i.test(error.message))return'Sign-in problem: '+error.message;fails++;if(fails>=5){lock=Date.now()+30000;fails=0}return'Incorrect email or password.'}
+ fails=0;await loadAll();
+ if(!ME){return'This account is not set up for the portal. Please contact the Global Impact Team.'}
+ if(ME.role!==want){await sb.auth.signOut();ME=null;return want==='admin'?'This login is for administrators only.':'Administrators, please use the administrator login.'}
+ return null}
+
+/* ===== Views ===== */
+const PIL=[{i:'chart',t:'Your personal dashboard',d:'Follow your grant status, progress and notes from the Global Impact Team in one private place.'},{i:'chat',t:'Your community',d:'Share insights, celebrate wins, ask questions and encourage fellow grantees.'},{i:'mega',t:'Your team',d:'Receive announcements and guidance directly from the Global Impact Team.'},{i:'shield',t:'Your security',d:'A personal login, private data and automatic sign-out keep your account protected.'}];
+let pi=0;
+const pilHTML=i=>`<div class="pi"><div class="fi">${ic(PIL[i].i)}</div><h3>${PIL[i].t}</h3><p>${PIL[i].d}</p></div><div class="bar"><i></i></div><div class="dots">${PIL.map((_,j)=>`<button aria-label="Show highlight ${j+1}" class="${j===i?'on':''}" data-a="pil" data-v="${j}"></button>`).join('')}</div>`;
+const setPil=i=>{pi=i;const el=$('#pil');if(el)el.innerHTML=pilHTML(i)};
+setInterval(()=>{if($('#pil'))setPil((pi+1)%PIL.length)},4800);
+const mark=()=>`<div class="logo"><div class="mk">L</div><span>LIFE <b>GRANTS</b></span></div>`;
+function footer(){return`<footer class="ft"><div class="wrap fg"><div>${mark()}<p>A Christ-centered global community supporting Life Grantees around the world, through the Global Impact Team.</p></div><div><h4>Access</h4><button class="fl" data-a="go" data-v="auth">Grantee sign in</button><button class="fl" data-a="go" data-v="admin-auth">Administrator login</button></div><div><h4>Legal</h4><button class="fl" data-a="legal" data-v="privacy">Privacy Policy</button><button class="fl" data-a="legal" data-v="terms">Terms and Conditions</button></div></div><div class="fb"><div class="wrap" style="padding:0">&copy; ${CFG.YEAR} Life Grants. All rights reserved. Operated by the Global Impact Team.</div></div></footer>`}
+function homeView(){return`<header id="hd" class="hd"><div class="wrap nav">${mark()}<nav class="links"><a href="#about">About</a><a href="#how">How it works</a><a href="#access">Access</a></nav><button class="btn gold sm" data-a="go" data-v="auth">Grantee sign in</button></div></header>
+<section class="hero"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div class="wrap hg"><div><div class="eyebrow">A Christ-centered global community</div><h1>A community built to help you <span id="rot" class="rot">grow</span></h1><p class="lead">Your private portal for tracking your Life Grant, learning from fellow grantees and receiving support from the Global Impact Team, wherever you are in the world.</p><div class="row"><button class="btn gold" data-a="go" data-v="auth">Sign in to your portal</button><a class="btn line" href="#how" style="text-decoration:none">See how it works</a></div></div>
+<aside class="glass"><h4>Inside your portal</h4><div id="pil">${pilHTML(pi)}</div></aside></div></section>
+<div class="strip"><div class="wrap sg"><div><b data-count="24" data-suf="/7">0</b><span>Portal access</span></div><div><b data-count="1">0</b><span>Connected community</span></div><div><b data-count="100" data-suf="%">0</b><span>Private dashboards</span></div></div></div>
+<section class="sec" id="about"><div class="wrap"><div class="sh rv"><div class="eyebrow">About the portal</div><h2>Support that continues long after the grant is awarded</h2><p class="mute">Life Grants is more than funding. This portal keeps every grantee informed, connected and encouraged.</p></div><div class="grid">
+<div class="card hv rv"><div class="fi">${ic('lock')}</div><h3>Private dashboard</h3><p class="mute">See only your own grant status, amount, milestones and notes from the Global Impact Team.</p></div>
+<div class="card hv rv"><div class="fi">${ic('chat')}</div><h3>Active community</h3><p class="mute">Share insights, celebrate wins, ask questions and encourage grantees around the world.</p></div>
+<div class="card hv rv"><div class="fi">${ic('mega')}</div><h3>Team updates</h3><p class="mute">Receive announcements and guidance directly from the Global Impact Team.</p></div>
+<div class="card hv rv"><div class="fi">${ic('globe')}</div><h3>Global community</h3><p class="mute">One connected community of grantees, united by a shared mission of impact.</p></div></div></div></section>
+<section class="sec" id="how" style="background:var(--card);border-block:1px solid var(--line)"><div class="wrap"><div class="sh rv"><div class="eyebrow">How it works</div><h2>Three simple steps to get started</h2></div><div class="grid">
+<div class="card step rv"><em>1</em><h3>Receive your login</h3><p class="mute">When your grant is awarded, the Global Impact Team issues your username and a temporary password.</p></div>
+<div class="card step rv"><em>2</em><h3>Secure your account</h3><p class="mute">Sign in and replace your temporary password with one that only you know.</p></div>
+<div class="card step rv"><em>3</em><h3>Join the community</h3><p class="mute">Follow your grant on your dashboard and connect with fellow grantees.</p></div></div></div></section>
+<section class="sec" id="access"><div class="wrap"><div class="band rv"><h2>New to the system?</h2><p>Newly awarded grantees will receive their login by email from the Global Impact Team, along with a secure link to create their own password. Accounts cannot be created on this page. If you have been awarded a grant and have not received your login, please contact your Global Impact Team representative.</p><button class="btn gold" data-a="go" data-v="auth">Grantee sign in</button></div></div></section>`+footer()}
+
+function authView(){return`<div class="auth"><div class="as"><div class="ap"><div>${mark()}<h2>Welcome back to your community.</h2><p>Sign in to view your grant, hear from the Global Impact Team and connect with fellow grantees.</p><ul><li>${ic('lock')}Your dashboard is private to you</li><li>${ic('chat')}A community of grantees around the world</li><li>${ic('shield')}Sessions end automatically when inactive</li></ul></div><div style="font-size:13px;color:#9fb6e6">A Christ-centered global community</div></div>
+<div class="af"><form class="fm" id="f" data-kind="in"><h2>Grantee sign in</h2><p class="mute">Use the login provided by the Global Impact Team.</p><label for="em">Email address</label><input id="em" name="em" type="email" required autocomplete="username" autocapitalize="none"><label for="pw">Password</label><div class="pw"><input id="pw" name="pw" type="password" required autocomplete="current-password"><button type="button" data-a="toggle">Show</button></div><div class="err" role="alert">${st.linkErr?'This link has expired or was already used. Choose Forgot password to receive a new one.':''}</div><button class="btn block" type="submit">Sign in</button><p style="text-align:right;margin:12px 0 0"><button type="button" class="link" data-a="go" data-v="forgot">Forgot password?</button></p>
+<div class="note">${ic('info')}<div><b>New grantee?</b> If you were recently awarded a grant, the Global Impact Team will email you your login along with a secure link to create your password. Accounts cannot be created here.</div></div><p style="text-align:center;margin:22px 0 0"><button type="button" class="link" data-a="go" data-v="home">Return to home</button></p></form></div></div>
+<div class="mini"><button class="link" data-a="legal" data-v="privacy">Privacy Policy</button> &nbsp;|&nbsp; <button class="link" data-a="legal" data-v="terms">Terms and Conditions</button> &nbsp;|&nbsp; &copy; ${CFG.YEAR} Life Grants</div></div>`}
+const simple=(inner,dark)=>`<div class="auth" style="${dark?'background:linear-gradient(160deg,#030b1e,#0a2252)':''}"><div class="af" style="flex:1">${inner}</div><div class="mini" ${dark?'style="color:#9fb6e6;border-color:#17306a"':''}><button class="link" data-a="legal" data-v="privacy">Privacy Policy</button> &nbsp;|&nbsp; <button class="link" data-a="legal" data-v="terms">Terms and Conditions</button></div></div>`;
+const adminAuth=()=>simple(`<form class="fm card" id="f" data-kind="admin-in" style="padding:36px"><div class="eyebrow" style="color:var(--sky)">Administrators only</div><h2>Administrator sign in</h2><label for="em">Email address</label><input id="em" name="em" type="email" required autocomplete="username" autocapitalize="none"><label for="pw">Password</label><div class="pw"><input id="pw" name="pw" type="password" required autocomplete="current-password"><button type="button" data-a="toggle">Show</button></div><div class="err" role="alert"></div><button class="btn block" type="submit">Sign in</button><p style="text-align:center;margin:20px 0 0"><button type="button" class="link" data-a="go" data-v="home">Return to home</button></p></form>`,true);
+const forgotView=()=>simple(`<form class="fm card" id="fg" style="padding:36px"><div class="fi">${ic('key')}</div><h2>Reset your password</h2>${st.sent?`<p class="mute">If an account exists for that email address, a secure reset link is on its way. Please check your inbox.</p><button type="button" class="btn block" data-a="go" data-v="auth">Back to sign in</button>`:`<p class="mute">Enter the email address on your account and we will send you a secure link.</p><label for="em">Email address</label><input id="em" name="em" type="email" required autocapitalize="none"><div class="err" role="alert"></div><button class="btn block" type="submit">Send reset link</button><p style="text-align:center;margin:20px 0 0"><button type="button" class="link" data-a="go" data-v="auth">Back to sign in</button></p>`}</form>`);
+const setpwView=()=>simple(`<form class="fm card" id="spw" style="padding:36px"><div class="fi">${ic('key')}</div><h2>Create your password</h2><p class="mute">Choose a password that only you know. Use at least 10 characters.</p><label>New password</label><input name="n1" type="password" required minlength="10" autocomplete="new-password"><label>Confirm password</label><input name="n2" type="password" required minlength="10" autocomplete="new-password"><div class="err" role="alert"></div><button class="btn block" type="submit">Save password and continue</button></form>`);
+const loadingView=()=>`<div class="auth"><div class="af" style="flex:1"><div class="mute" style="text-align:center">${mark()}<p style="margin-top:18px">Loading your portal</p></div></div></div>`;
+const configView=()=>simple(`<div class="card fm"><h2>Setup required</h2><p class="mute">This portal has not been connected to its database yet. Add your Supabase project URL and public anon key to the CFG block at the top of this file, then reload. See README.md for the full steps.</p></div>`);
+function welcomeModal(u){return`<div class="modal"><div class="mb"><div class="fi">${ic('heart')}</div><h2>Welcome, ${esc(u.name.split(' ')[0])}</h2><p class="mute">We are so glad you are here. You are part of a global community of grantees who are cheering you on. Review your grant details, share what is on your mind, and update your password any time from the Account tab.</p><button class="btn" data-a="enter">Enter my community</button></div></div>`}
+
+function legalModal(){const P=st.legal==='privacy';const S2=P?[
+['Who we are','This portal is operated by the Life Grants program through the Global Impact Team for recipients of Life Grants in the United States and Kenya. This policy explains how personal information is handled on this portal.'],
+['Information we collect','We collect the information needed to administer your account and grant: your name, country, username, grant details (status, amount, purpose, check-in dates and notes), the content you post in the community, and limited technical information needed to keep the portal secure.'],
+['How we use information','We use your information to provide your account, display your personal dashboard, administer and support your grant, operate the community, protect the security of the portal and meet legal obligations.'],
+['Who can see your information','Your grant details are visible to you and to authorized administrators of the Global Impact Team. Anything you post in the community is visible to other signed-in grantees and administrators. We do not sell personal information.'],
+['Your rights','Depending on where you live, including under Kenya\u2019s Data Protection Act, 2019 and applicable United States state laws, you may have the right to access, correct or request deletion of your personal information, and to object to certain processing. To make a request, contact your Global Impact Team representative.'],
+['Security','Passwords are stored in hashed form, accounts are issued by administrators, and sessions end automatically after a period of inactivity. No system is completely secure, so please keep your login confidential and sign out on shared devices.'],
+['Retention','We keep personal information only for as long as needed for grant administration, program reporting and legal requirements, after which it is deleted or anonymized.'],
+['Changes and contact','We may update this policy as the system evolves and will post the updated version here. Questions can be directed to your Global Impact Team representative.']
+]:[
+['Acceptance of terms','By signing in to this portal you agree to these Terms and Conditions and the Privacy Policy. If you do not agree, please do not use the portal.'],
+['Accounts and access','Accounts are created and issued by the Global Impact Team. You are responsible for keeping your username and password confidential, for replacing your temporary password promptly and for all activity under your account. Notify the Global Impact Team immediately if you suspect unauthorized use.'],
+['Community conduct','Treat other members with respect and kindness. Do not post content that is unlawful, harassing, discriminatory, misleading or that reveals another person\u2019s private information. Do not share financial account details or passwords in the community. Administrators may remove content that violates these terms.'],
+['Grant information','Grant details shown on the portal are provided for your convenience. Your grant agreement with the program is the governing document, and if the portal and the agreement differ, the agreement applies.'],
+['Your content','You keep ownership of what you post. By posting, you give the program permission to display it within the portal for the purpose of operating the community.'],
+['Suspension and removal','Access may be suspended or ended if these terms are breached, if an account is compromised, or when a grant relationship concludes.'],
+['Disclaimers and liability','The portal is provided on an as-is basis. To the extent permitted by law, the program is not liable for indirect or consequential losses arising from use of the portal. Nothing in these terms limits liability that cannot be limited by law.'],
+['Changes, governing law and contact','We may update these terms and will post the current version here. These terms are governed by the laws specified in your grant agreement. Questions can be directed to your Global Impact Team representative.']];
+return`<div class="modal" data-a="closeLegal"><div class="mb lg" role="dialog" aria-modal="true" aria-label="${P?'Privacy Policy':'Terms and Conditions'}"><div class="lh"><div><h2 style="margin:0">${P?'Privacy Policy':'Terms and Conditions'}</h2><small class="mute">Last updated ${CFG.UPDATED}</small></div><button class="btn sm line" style="color:var(--ink)" data-a="closeLegal">Close</button></div><div class="lb">${S2.map((s,i)=>`<h3>${i+1}. ${s[0]}</h3><p>${s[1]}</p>`).join('')}</div></div></div>`}
+
+function feedHTML(u,admin){const q=st.q.toLowerCase();const l=posts.filter(p=>(st.filter==='All'||p.type===st.filter)&&(!q||(p.text+p.name).toLowerCase().includes(q))).sort((a,b)=>b.t-a.t);
+return l.map((p,i)=>`<div class="post ${p.team?'team':''}" style="animation-delay:${Math.min(i,8)*.05}s"><div class="av">${p.team?'GI':esc(ini(p.name))}</div><div style="flex:1;min-width:0"><div><b>${esc(p.name)}</b><span class="tag ${p.team?'team':''}">${esc(p.type)}</span> <small class="mute">${ago(p.t)}</small></div>${admin&&st.ep===p.id?`<form id="ef" data-id="${p.id}"><textarea name="text" rows="3" required maxlength="800">${esc(p.text)}</textarea><div style="margin:8px 0 10px"><button class="btn sm" type="submit">Save</button> <button type="button" class="btn line sm" style="color:var(--ink)" data-a="cancelep">Cancel</button></div></form>`:`<p style="margin:6px 0 10px;white-space:pre-wrap;overflow-wrap:anywhere">${esc(p.text)}${p.edited?' <small class="mute">(edited)</small>':''}</p>`}<button class="react ${p.amen.includes(u.id)?'on':''}" data-a="amen" data-id="${p.id}">${ic('heart')}Encourage ${p.amen.length||''}</button>${admin?` <button class="link mute" style="font-size:13px;margin-left:10px" data-a="editpost" data-id="${p.id}">Edit</button>`:''}${admin||p.uid===u.id?` <button class="link mute" style="font-size:13px;margin-left:10px" data-a="delpost" data-id="${p.id}">Delete</button>`:''}</div></div>`).join('')||'<p class="mute" style="padding:24px 0">No posts match your search.</p>'}
+
+function shell(u,tabs,body,warn){return`${warn||''}<div class="top"><div class="wrap tb">${mark()}<div class="tabs">${tabs.map(t=>`<button class="${st.tab===t[0]?'on':''}" data-a="tab" data-v="${t[0]}">${t[1]}</button>`).join('')}</div><div class="who"><div class="av">${esc(ini(u.name))}</div><span>${esc(u.name)}</span><button class="btn line sm" data-a="out">Sign out</button></div></div></div><main class="wrap page">${body}</main>`+footer()}
+
+const accountBody=()=>`<div class="card" style="max-width:520px"><div class="fi">${ic('key')}</div><h3>Change password</h3><p class="mute">Choose a new password that only you know. Use at least 10 characters.</p><form id="cp"><label>Current password</label><input name="cur" type="password" required autocomplete="current-password"><label>New password</label><input name="n1" type="password" required minlength="10" autocomplete="new-password"><label>Confirm new password</label><input name="n2" type="password" required minlength="10" autocomplete="new-password"><div class="err" role="alert"></div><button class="btn" type="submit">Update password</button></form></div>`;
+function dashView(u){const g=u.grant||{},si=Math.max(0,STAGES.indexOf(g.status||STAGES[0])),pr=Math.min(100,Math.max(0,+g.progress||0));
+const h=new Date().getHours(),gr=h<12?'Good morning':h<18?'Good afternoon':'Good evening';
+let body;
+if(st.tab==='community')body=`<div class="card sp"><h3>Share with the community</h3><form id="pf"><div class="grid" style="grid-template-columns:200px 1fr;gap:12px"><select name="type" aria-label="Post type"><option>Encouragement</option><option>Insight</option><option>Win</option><option>Question</option></select><textarea name="text" rows="2" required maxlength="800" placeholder="What would you like to share?"></textarea></div><div style="margin-top:12px"><button class="btn" type="submit">Post to community</button></div></form></div>
+<div class="card"><div style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center"><h3 style="margin:0">Community feed</h3><input id="sq" style="max-width:260px" placeholder="Search posts" value="${esc(st.q)}" aria-label="Search posts"></div><div class="chips">${['All','Announcement','Encouragement','Insight','Win','Question'].map(c=>`<button class="${st.filter===c?'on':''}" data-a="filter" data-v="${c}">${c}</button>`).join('')}</div><div id="feed">${feedHTML(u)}</div></div>`;
+else if(st.tab==='account')body=accountBody();
+else{const my=updates.filter(x=>x.uid===u.id),last=my[0],c=sIdx(g.status);let seen=0;try{seen=+localStorage.getItem('lg_seen_'+u.id)||0}catch(e){}
+body=`<div class="gr"><h1>${gr}, ${esc(u.name.split(' ')[0])}</h1><p>Here is where your grant stands today. The Global Impact Team keeps this page up to date at every stage.</p></div>
+<div class="card sp"><div class="sth"><div><small class="mute upper">Grant status</small><h2 style="margin:4px 0 0">${STAGES[c]}</h2></div><span class="pill ${c===3?'s1':c>0?'s2':''}">Last updated ${last?fmt(last.t):(g.updated_at?fmt(Date.parse(g.updated_at)):'recently')}</span></div>${bar(g.status,true)}<p class="sdesc">${SINFO[c]}</p>
+${last?`<div class="latest"><div class="lh2"><b>Latest message from your team</b>${last.t>seen?'<span class="newb">New</span>':''}<small>${fmt(last.t)}</small></div><p>${esc(last.msg)}</p></div>`:''}</div>
+<div class="kp"><div class="card"><small>Grant amount</small><b>${g.amount?cur(u.ct)+' '+Number(g.amount).toLocaleString():'To be confirmed'}</b></div><div class="card"><small>Next check-in</small><b>${esc(g.checkin||'To be scheduled')}</b></div><div class="card"><small>Purpose</small><b style="font-size:18px">${esc(g.purpose||'To be confirmed')}</b></div></div>
+<div class="two"><div class="card"><h3>Update history</h3>${timeline(my,false)}</div><div class="card"><h3>Pinned note from your team</h3><p class="mute">${esc(g.note||'Your Global Impact Team will add notes here as your grant moves forward.')}</p><div class="qt">${esc(QUOTES[new Date().getDate()%QUOTES.length])}</div></div></div>`}
+return shell(u,[['overview','Overview'],['community','Community'],['account','Account']],body)}
+
+const money=x=>(x.grant||{}).amount?cur(x.ct)+' '+Number(x.grant.amount).toLocaleString():'-';
+const lastUpd=x=>{const u=updates.find(v=>v.uid===x.id);const t=u?u.t:((x.grant||{}).updated_at?Date.parse(x.grant.updated_at):0);return t?new Date(t).toLocaleDateString():'-'};
+const rows=()=>{const q=st.aq.toLowerCase();return people.filter(x=>(x.name+x.email).toLowerCase().includes(q)&&(st.sf==='All'||((x.grant||{}).status||STAGES[0])===st.sf)).map(x=>{const s=(x.grant||{}).status||STAGES[0];return`<tr><td><b>${esc(x.name)}</b></td><td>${esc(x.email)}</td><td style="white-space:nowrap">${money(x)}</td><td style="min-width:150px">${bar(s,false)}<small class="mute">${esc(s)}</small></td><td style="white-space:nowrap">${lastUpd(x)}</td><td style="white-space:nowrap"><button class="btn sm" data-a="edit" data-id="${x.id}">Edit</button> <button class="btn line sm" style="color:var(--ink)" data-a="reset" data-id="${x.id}">Resend access email</button> ${st.del===x.id?`<button class="btn red sm" data-a="del" data-id="${x.id}">Confirm</button>`:`<button class="link mute" data-a="askdel" data-id="${x.id}">Remove</button>`}</td></tr>`}).join('')||'<tr><td colspan="6" class="mute">No grantees found.</td></tr>'};
+function pipeline(){const cnt=STAGES.map(s=>people.filter(x=>((x.grant||{}).status||STAGES[0])===s).length);
+return`<div class="card sp"><div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline"><h3 style="margin:0">Grant pipeline</h3><span class="mute" style="font-size:14px">${people.length} grantee${people.length===1?'':'s'} &middot; ${posts.length} community posts</span></div>
+<div class="seg" aria-hidden="true">${cnt.map((c,i)=>`<i class="c${i}" style="flex:${c}"></i>`).join('')}</div>
+<div class="pg">${STAGES.map((s,i)=>`<button class="pc ${st.sf===s?'on':''}" data-a="sf" data-v="${s}"><span class="pn">${cnt[i]}</span><b>${s}</b><small>${SADM[i]}</small></button>`).join('')}</div>${st.sf!=='All'?`<p style="margin:14px 0 0">Showing: <b>${esc(st.sf)}</b> &middot; <button class="link" data-a="sf" data-v="All">Show all grantees</button></p>`:''}</div>`}
+function activity(){const l=updates.slice(0,10).map((x,i)=>{const g=people.find(p=>p.id===x.uid);return`<div class="tl-i ${i===0?'first':''}"><i></i><div><div class="tlh"><b>${esc(g?g.name:'Removed grantee')}</b><span class="pill ${sIdx(x.status)===3?'s1':sIdx(x.status)>0?'s2':''}">${esc(x.status)}</span><small class="mute">${fmt(x.t)}</small></div><p>${esc(x.msg)}</p></div></div>`}).join('');return`<div class="card sp"><h3>Recent updates sent to grantees</h3>${l?`<div class="tl">${l}</div>`:'<p class="mute">No updates have been sent yet. Updates you write when editing a grantee appear here and on that grantee&rsquo;s dashboard.</p>'}</div>`}
+function adminView(u){const gs=people,stt=x=>(x.grant||{}).status||STAGES[0];let body;
+if(st.tab==='account')body=accountBody();
+else if(st.tab==='community')body=`<div class="card sp"><h3>Post as Global Impact Team</h3><form id="af"><textarea name="text" rows="3" required maxlength="800" placeholder="Write an announcement or word of encouragement"></textarea><div style="margin-top:12px"><button class="btn" type="submit">Publish announcement</button></div></form></div><div class="card"><h3>Community moderation</h3><div class="chips">${['All','Announcement','Encouragement','Insight','Win','Question'].map(c=>`<button class="${st.filter===c?'on':''}" data-a="filter" data-v="${c}">${c}</button>`).join('')}</div><div id="feed">${feedHTML(u,true)}</div></div>`;
+else body=`<div class="gr"><h1>Administration</h1><p>Invite grantees, manage grants and keep the community healthy.</p></div>
+${pipeline()}
+${st.note?`<div class="card sp" style="border-color:${st.note.ok?'var(--gold)':'#cf2d41'}"><h3>${esc(st.note.t)}</h3><p class="mute" style="margin:0 0 14px">${esc(st.note.m)}</p><button class="btn line sm" style="color:var(--ink)" data-a="dismiss">Dismiss</button></div>`:''}
+<div class="card sp"><h3>Invite a grantee</h3><p class="mute">The grantee receives an email with a secure link to create their own password.</p><form id="nf"><div class="grid" style="gap:14px"><div><label>Full name</label><input name="name" required maxlength="60"></div><div><label>Email address</label><input name="email" type="email" required autocapitalize="none"></div><div><label>Currency region</label><select name="ct"><option value="US">US dollars (USD)</option><option value="KE">Kenya shillings (KES)</option></select></div></div><div class="err" role="alert"></div><button class="btn" type="submit">Send invitation</button></form></div>
+<div class="card sp"><div style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center"><h3 style="margin:0">Grantees</h3><input id="aq" style="max-width:260px" placeholder="Search grantees" value="${esc(st.aq)}" aria-label="Search grantees"></div><div class="scr"><table class="tbl"><thead><tr><th>Name</th><th>Email</th><th>Amount</th><th>Grant status</th><th>Updated</th><th></th></tr></thead><tbody id="gt">${rows()}</tbody></table></div></div><div id="ed"></div>${activity()}`;
+return shell(u,[['overview','Grantees'],['community','Community'],['account','Account']],body)}
+function editor(id){const x=people.find(u=>u.id===id);if(!x)return;const g=x.grant||{},my=updates.filter(v=>v.uid===id),c=sIdx(g.status);
+$('#ed').innerHTML=`<div class="card sp"><div class="sth"><div><h3 style="margin:0">${esc(x.name)}</h3><small class="mute">${esc(x.email)} &middot; ${x.ct==='KE'?'KES':'USD'} &middot; last updated ${lastUpd(x)}</small></div><button class="btn line sm" style="color:var(--ink)" data-a="closeed">Close</button></div>${bar(g.status,true)}<p class="sdesc" style="margin-bottom:0">${SINFO[c]}</p></div>
+<div class="two"><div class="card"><h3>Edit details</h3><p class="mute">Everything here can be changed at any time. The grantee sees changes and your message on their dashboard right away.</p><form id="gf" data-id="${id}"><h4 style="color:var(--blue)">Profile</h4><div class="grid" style="gap:14px"><div><label>Full name</label><input name="name" required maxlength="60" value="${esc(x.name)}"></div><div><label>Email (login)</label><input value="${esc(x.email)}" disabled></div><div><label>Currency region</label><select name="ct"><option value="US" ${x.ct==='US'?'selected':''}>US dollars (USD)</option><option value="KE" ${x.ct==='KE'?'selected':''}>Kenya shillings (KES)</option></select></div></div>
+<h4 style="color:var(--blue);margin-top:28px">Grant details</h4><div class="grid" style="gap:14px"><div><label>Status</label><select name="status">${STAGES.map(s=>`<option ${g.status===s||(!g.status&&s===STAGES[0])?'selected':''}>${s}</option>`).join('')}</select></div><div><label>Amount</label><input name="amount" type="number" min="0" step="any" value="${esc(g.amount??'')}"></div><div><label>Next check-in</label><input name="checkin" maxlength="40" value="${esc(g.checkin||'')}"></div><div><label>Purpose</label><input name="purpose" maxlength="80" value="${esc(g.purpose||'')}"></div></div>
+<label>Pinned note (always shown to the grantee)</label><textarea name="note" rows="2" maxlength="400">${esc(g.note||'')}</textarea>
+<label>Message to the grantee about this update</label><textarea name="message" rows="3" maxlength="600" placeholder="Shown in their update history. If you change the status and leave this blank, a standard message is sent."></textarea>
+<div style="margin-top:16px"><button class="btn" type="submit">Save and update grantee</button></div></form></div>
+<div class="card"><h3>Update history</h3>${timeline(my,true)}</div></div>`;$('#ed').scrollIntoView({behavior:'smooth'})}
+
+/* ===== Render and effects ===== */
+function render(){const u=me();
+ const h=st.loading?loadingView():!CONFIGURED||!sb?configView():st.view==='setpw'?setpwView():u?(u.role==='admin'?adminView(u):dashView(u)):st.view==='auth'?authView():st.view==='forgot'?forgotView():st.view==='admin-auth'?adminAuth():homeView();
+ $('#app').innerHTML=h+(st.welcome&&u?welcomeModal(u):'')+(st.legal?legalModal():'');
+ document.body.style.overflow=document.querySelector('.modal')?'hidden':'';
+ effects();if(u&&u.role==='grantee'&&st.tab==='overview'&&updates.length){const ts=updates[0].t;setTimeout(()=>{try{localStorage.setItem('lg_seen_'+u.id,String(ts))}catch(e){}},4000)}}
+function effects(){const run=el=>{if(el.dataset.count){const T=+el.dataset.count,sf=el.dataset.suf||'',t0=performance.now();const f=t=>{const p=Math.min(1,(t-t0)/1400);el.textContent=Math.round(T*(1-Math.pow(1-p,3)))+sf;if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}else el.classList.add('in')};
+ const els=document.querySelectorAll('.rv,[data-count]');if(!('IntersectionObserver' in window)){els.forEach(e=>{e.classList.add('in');if(e.dataset.count)e.textContent=e.dataset.count+(e.dataset.suf||'')});return}
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){run(e.target);io.unobserve(e.target)}}),{threshold:.15});els.forEach(e=>io.observe(e));
+ onScroll()}
+function onScroll(){const h=$('#hd');if(h)h.classList.toggle('solid',window.scrollY>40)}
+window.addEventListener('scroll',onScroll,{passive:true});
+const W=['grow','connect','lead','thrive'];let wi=0;
+setInterval(()=>{const el=$('#rot');if(!el)return;el.classList.add('out');setTimeout(()=>{wi=(wi+1)%W.length;el.textContent=W[wi];el.classList.remove('out')},350)},2800);
+['click','keydown','touchstart'].forEach(ev=>document.addEventListener(ev,()=>lastAct=Date.now(),{passive:true}));
+setInterval(()=>{if(ME&&Date.now()-lastAct>CFG.SESSION_MIN*60000){signOut().then(()=>{st.view='auth';render();toast('You were signed out due to inactivity.')})}},30000);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&st.legal){st.legal=null;render()}});
+
+/* ===== Events ===== */
+document.addEventListener('click',async e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,u=me(),adm=u&&u.role==='admin';
+ if(a==='closeLegal'){if(e.target.closest('.lg')&&!e.target.closest('button'))return;st.legal=null;return render()}
+ if(a==='legal'){st.legal=b.dataset.v;return render()}
+ if(a==='pil')return setPil(+b.dataset.v);
+ if(a==='go'){st.view=b.dataset.v;st.sent=false;st.linkErr=false;window.scrollTo(0,0);return render()}
+ if(a==='toggle'){const i=b.previousElementSibling;i.type=i.type==='password'?'text':'password';b.textContent=i.type==='password'?'Show':'Hide';return}
+ if(a==='out'){return signOut()}
+ if(a==='enter'){st.welcome=false;return render()}
+ if(!u)return;
+ if(a==='tab'){st.tab=b.dataset.v;window.scrollTo(0,0);return render()}
+ if(a==='filter'){st.filter=b.dataset.v;return render()}
+ if(a==='amen'){const p=posts.find(p=>p.id===b.dataset.id);if(!p)return;const has=p.amen.includes(u.id);const r=has?await sb.from('reactions').delete().match({post_id:p.id,user_id:u.id}):await sb.from('reactions').insert({post_id:p.id,user_id:u.id});if(r.error)toast('Could not save your reaction');await loadPosts();return render()}
+ if(a==='delpost'){const r=await sb.from('posts').delete().eq('id',b.dataset.id);if(r.error)toast('You do not have permission to delete that post');await loadPosts();return render()}
+ if(!adm)return;
+ if(a==='edit')return editor(b.dataset.id);
+ if(a==='closeed'){$('#ed').innerHTML='';return}
+ if(a==='sf'){st.sf=(b.dataset.v==='All'||b.dataset.v===st.sf)?'All':b.dataset.v;return render()}
+ if(a==='delup'){const up=updates.find(v=>v.id===b.dataset.id);const r=await sb.from('grant_updates').delete().eq('id',b.dataset.id);if(r.error)toast('Could not delete that update');await loadAll();render();if(up)editor(up.uid);return}
+ if(a==='editpost'){st.ep=b.dataset.id;return render()}
+ if(a==='cancelep'){st.ep=null;return render()}
+ if(a==='dismiss'){st.note=null;return render()}
+ if(a==='askdel'){st.del=b.dataset.id;return render()}
+ if(a==='del'){const id=b.dataset.id;b.disabled=true;const r=await api({action:'remove',id});st.del=null;if(r.error)toast(r.error);else toast('Grantee removed');await loadAll();return render()}
+ if(a==='reset'){const x=people.find(v=>v.id===b.dataset.id);b.disabled=true;const r=await api({action:'resend',id:b.dataset.id});b.disabled=false;toast(r.error?r.error:'Access email sent to '+(x?x.email:'grantee'));return}});
+document.addEventListener('input',e=>{const u=me();if(!u)return;if(e.target.id==='sq'){st.q=e.target.value;$('#feed').innerHTML=feedHTML(u,u.role==='admin')}if(e.target.id==='aq'){st.aq=e.target.value;$('#gt').innerHTML=rows()}});
+document.addEventListener('submit',async e=>{e.preventDefault();const f=e.target,d=Object.fromEntries(new FormData(f)),u=me(),btn=f.querySelector('button[type=submit]');if(btn)btn.disabled=true;
+ try{
+ if(!sb)return;
+ if(f.id==='f'){const want=f.dataset.kind==='admin-in'?'admin':'grantee',err=await doLogin(d.em,d.pw,want);if(err)return setErr(err);st.tab='overview';st.welcome=want==='grantee';subscribe();window.scrollTo(0,0);return render()}
+ if(f.id==='fg'){await sb.auth.resetPasswordForEmail(d.em.trim().toLowerCase(),{redirectTo:SITE});st.sent=true;return render()}
+ if(f.id==='spw'){if(d.n1!==d.n2)return setErr('The passwords do not match.');const{error}=await sb.auth.updateUser({password:d.n1});if(error)return setErr(error.message);await loadAll();st.view='home';st.tab='overview';st.welcome=!!ME&&ME.role==='grantee';subscribe();window.scrollTo(0,0);return render()}
+ if(!u)return;
+ if(f.id==='pf'){const r=await sb.from('posts').insert({author_id:u.id,type:d.type,body:d.text.trim(),is_team:false});if(r.error)return toast('Your post could not be saved');await loadPosts();toast('Posted to the community');return render()}
+ if(f.id==='cp'){const c=await sb.auth.signInWithPassword({email:u.email,password:d.cur});if(c.error)return setErr('Your current password is incorrect.');if(d.n1!==d.n2)return setErr('The new passwords do not match.');const{error}=await sb.auth.updateUser({password:d.n1});if(error)return setErr(error.message);toast('Password updated');st.tab='overview';return render()}
+ if(f.id==='ef'){const r=await sb.from('posts').update({body:d.text.trim(),edited:true}).eq('id',f.dataset.id);st.ep=null;if(r.error)toast('Could not update the post');else toast('Post updated');await loadPosts();return render()}
+ if(u.role!=='admin')return;
+ if(f.id==='nf'){const r=await api({action:'invite',name:d.name.trim(),email:d.email.trim().toLowerCase(),ct:d.ct});if(r.error)return setErr(r.error);st.note=r.data.emailed?{ok:true,t:'Invitation sent',m:'An email with a secure password link was sent to '+d.email.trim()+'.'}:{ok:false,t:'Account created, but the email was not sent',m:'Use Resend access email once your Resend domain is verified. Detail: '+(r.data.detail||'unknown')};await loadPeople();return render()}
+ if(f.id==='af'){const r=await sb.from('posts').insert({author_id:u.id,type:'Announcement',body:d.text.trim(),is_team:true});if(r.error)return toast('Announcement could not be published');await loadPosts();toast('Announcement published');return render()}
+ if(f.id==='gf'){const id=f.dataset.id,x=people.find(p=>p.id===id),prev=((x&&x.grant)||{}).status||STAGES[0];
+  const r1=await sb.from('profiles').update({name:d.name.trim(),ct:d.ct}).eq('id',id);
+  const r2=await sb.from('grants').upsert({user_id:id,status:d.status,amount:d.amount===''?null:+d.amount,purpose:d.purpose,checkin:d.checkin,note:d.note,updated_at:new Date().toISOString()});
+  if(r1.error||r2.error)return toast('Could not save changes');
+  let msg=(d.message||'').trim();if(d.status!==prev&&!msg)msg='Your grant status is now '+d.status+'. '+SINFO[sIdx(d.status)];
+  if(msg){const r3=await sb.from('grant_updates').insert({user_id:id,status:d.status,message:msg,created_by:u.id});if(r3.error)return toast('Saved, but the update message could not be recorded')}
+  await loadAll();render();editor(id);toast(msg?'Saved. The grantee can now see your message.':'All changes saved');return}
+ }catch(err){setErr('Something went wrong. Please try again.')}finally{if(btn&&btn.isConnected)btn.disabled=false}});
+window.addEventListener('scroll',()=>{},{passive:true});
+async function boot(){render();if(!sb){st.loading=false;return render()}
+ const{data:{session}}=await sb.auth.getSession();if(session)await loadAll();
+ if((LINK.type==='recovery'||LINK.type==='invite')&&session&&ME)st.view='setpw';else if(LINK.err){st.view='auth';st.linkErr=true}
+ if(LINK.type||LINK.err)history.replaceState(null,'',location.pathname+location.search);
+ st.loading=false;if(ME)subscribe();render();
+ sb.auth.onAuthStateChange(ev=>{if(ev==='SIGNED_OUT'&&ME){ME=null;unsub();st=fresh();render()}})}
+boot();
+
+</script>
+</body>
+</html>
